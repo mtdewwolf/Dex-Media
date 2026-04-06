@@ -1,0 +1,22 @@
+# Env
+.env
+
+# Backend
+backend/main
+backend/backend
+*.exe
+*.db
+
+# Frontend
+frontend/node_modules
+frontend/dist
+frontend/.eslintcache
+
+# Data & Media
+data/
+media/
+streams/
+
+# OS
+.DS_Store
+Thumbs.db

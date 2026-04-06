@@ -1,0 +1,25 @@
+services:
+  backend:
+    build:
+      context: ./backend
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./media:/app/media
+      - ./data:/app/data
+      - ./streams:/app/data/streams
+    environment:
+      - PORT=8080
+      - MEDIA_DIR=/app/media
+      - DB_PATH=/app/data/dex.db
+      - TMDB_API_KEY=${TMDB_API_KEY:-}
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
